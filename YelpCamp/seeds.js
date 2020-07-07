@@ -5,29 +5,29 @@ var User = require("./models/user");
 
 var data = [
     {
-        name: "Buddy",
-        image: "https://images.unsplash.com/photo-1562220058-1a0a019ab606?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
-        description: "He is a basketball fan.",
+        name: "Cloud Camp",
+        image: "https://images.unsplash.com/photo-1476041800959-2f6bb412c8ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+        description: "Above the clouds.",
     },
     {
-        name: "Bruce",
-        image: "https://images.unsplash.com/photo-1555991415-1b04a71f18c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-        description: "Gladiator"
+        name: "Fjords",
+        image: "https://images.unsplash.com/photo-1526491109672-74740652b963?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        description: "Norway"
     },
     {
-        name: "Rusty",
-        image: "https://images.unsplash.com/photo-1553882809-a4f57e59501d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-        description: "The dark knight"
+        name: "Sky scanner",
+        image: "https://images.unsplash.com/photo-1499363536502-87642509e31b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+        description: "Far away"
     },
     {
-        name: "Ghost",
-        image: "https://images.unsplash.com/photo-1553531384-411a247ccd73?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-        description: "Basically a calf"
+        name: "Endless landscape",
+        image: "https://images.unsplash.com/photo-1571687949921-1306bfb24b72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+        description: "finally free"
     },
     {
-        name: "Happy",
-        image: "https://images.unsplash.com/photo-1534361960057-19889db9621e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-        description: "Name and image speak for themselves!"
+        name: "Asia",
+        image: "https://images.unsplash.com/photo-1503265192943-9d7eea6fc77a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80",
+        description: "Happiness is only real when shared"
     }
 ]
 
