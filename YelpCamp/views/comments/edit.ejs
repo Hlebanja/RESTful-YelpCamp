@@ -7,7 +7,7 @@
 
         
         
-        <form action="/dogs/<%= dogID %>/comments/<%= comment._id %>?_method=put" method="POST">
+        <form action="/camps/<%= campID %>/comments/<%= comment._id %>?_method=put" method="POST">
             <div class="form-group">    
                 <input class="form-control" type="text" name="comment[text]" value="<%= comment.text %>">
             </div>
@@ -15,7 +15,7 @@
                 <button class="btn btn-primary btn-lg btn-default btn-block">submit!</button>
             </div>
         </form>
-        <a href="/dogs">Go back!</a>
+        <a href="/camps">Go back!</a>
         
     </div>
 

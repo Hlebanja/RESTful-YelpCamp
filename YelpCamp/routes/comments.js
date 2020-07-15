@@ -1,21 +1,21 @@
 var express = require("express");
 var router = express.Router({ mergeParams: true }); //makes sure the :id from URL is passed as params
-var Dog = require("../models/dog");
+var Camp = require("../models/camp");
 var Comment = require("../models/comment");
 var middleware = require("../middleware/index.js");
 
 router.get("/new", middleware.isLoggedIn, function (req, res) {
-    Dog.findById(req.params.id, function (err, foundDog) {
+    Camp.findById(req.params.id, function (err, foundCamp) {
         if (err) {
             console.log(err);;
         } else {
-            res.render("comments/new", { dog: foundDog });
+            res.render("comments/new", { camp: foundCamp });
         }
     });
 });
 
 router.post("/", middleware.isLoggedIn, function (req, res) {
-    Dog.findById(req.params.id, function (err, foundDog) {
+    Camp.findById(req.params.id, function (err, foundCamp) {
         if (err) {
             req.flash("error", "Something went terribly wrong");
             console.log(err);;
@@ -28,10 +28,10 @@ router.post("/", middleware.isLoggedIn, function (req, res) {
                     newComment.author.id = req.user._id;
                     newComment.author.username = req.user.username;
                     newComment.save();
-                    foundDog.comments.push(newComment);
-                    foundDog.save();
+                    foundCamp.comments.push(newComment);
+                    foundCamp.save();
                     req.flash("success", "Successfully created comment!")
-                    res.redirect("/dogs/" + foundDog._id);
+                    res.redirect("/camps/" + foundCamp._id);
                 }
             });
         }
@@ -44,19 +44,19 @@ router.get("/:comment_id/edit", middleware.checkCommentOwnership, function (req,
             console.log(err)
             res.redirect("back");
         } else {
-            res.render("comments/edit.ejs", { comment: foundComment, dogID: req.params.id });
+            res.render("comments/edit.ejs", { comment: foundComment, campID: req.params.id });
         }
     });
 });
 
-// app.use("/dogs/:id/comments/", commentRoutes);
+// app.use("/camps/:id/comments/", commentRoutes);
 router.put("/:comment_id", function (req, res) {
     Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function (err, updatedComment) {
         if (err) {
             console.log(err);
             res.redirect("back");
         } else {
-            res.redirect("/dogs/" + req.params.id);
+            res.redirect("/camps/" + req.params.id);
         }
 
     });
@@ -69,7 +69,7 @@ router.delete("/:comment_id", middleware.checkCommentOwnership, function (req, r
             res.redirect("back");
         } else {
             req.flash("success", "Comment deleted");
-            res.redirect("/dogs/" + req.params.id);
+            res.redirect("/camps/" + req.params.id);
         }
     });
 })

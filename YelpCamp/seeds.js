@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-var Dog = require("./models/dog");
+var Camp = require("./models/camp");
 var Comment = require("./models/comment");
 var User = require("./models/user");
 
@@ -32,12 +32,12 @@ var data = [
 ]
 
 function cleanDB() {
-    //Remove all dogs
-    Dog.deleteMany({}, function (err) {
+    //Remove all camps
+    Camp.deleteMany({}, function (err) {
         if (err) {
             console.log(err);
         } else {
-            console.log("removed dogs!");
+            console.log("removed camps!");
         }
     });
     User.deleteMany({}, function (err) {
@@ -62,30 +62,30 @@ function createUser() {
 function seedDB() {
     cleanDB();
     createUser();
-    //Adding dogs  
+    //Adding camps  
     User.register({ username: "jones" }, "12", function (err, newUser) {
         if (err) {
             console.log(err);
         } else {
             console.log("user registered!");
             data.forEach(function (seed) {
-                Dog.create(seed, function (err, dog) {
+                Camp.create(seed, function (err, camp) {
                     if (err) {
                         console.log(err);
                     } else {
-                        dog.author.id = newUser._id;
-                        dog.author.username = newUser.username;
-                        console.log("Added doggo!");
+                        camp.author.id = newUser._id;
+                        camp.author.username = newUser.username;
+                        console.log("Added campsite!");
                         //Create comment here
-                        Comment.create({ text: "This is the best doggo!" }, function (err, newComment) {
+                        Comment.create({ text: "This is the best campsite!" }, function (err, newComment) {
                                 if (err) {
                                     console.log(err);
                                 } else {
                                     newComment.author.username = newUser.username;
                                     newComment.author.id = newUser._id;
                                     newComment.save();
-                                    dog.comments.push(newComment)
-                                    dog.save();
+                                    camp.comments.push(newComment)
+                                    camp.save();
                                     console.log("Created new comment");
                                 }
                             }

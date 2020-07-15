@@ -20,8 +20,8 @@ router.post("/register", function (req, res) {
             return res.render('register'); //stops callback
         }
         passport.authenticate("local")(req, res, function () { //local would be "facebook" if we wanted fb auth
-        req.flash("success", "Welcome to DogBook " + user.username);
-            res.redirect("/dogs");
+        req.flash("success", "Welcome to YelpCamp " + user.username);
+            res.redirect("/camps");
         });
     });
 });
@@ -33,7 +33,7 @@ router.get("/login", function (req, res) {
 
 //login logic
 router.post("/login", passport.authenticate("local", {
-    successRedirect: "/dogs",
+    successRedirect: "/camps",
     failureRedirect: "/login"
 }), function (req, res) {}
 );

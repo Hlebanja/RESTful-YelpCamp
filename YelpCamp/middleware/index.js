@@ -1,17 +1,17 @@
-var Dog = require("../models/dog");
+var Camp = require("../models/camp");
 var Comment = require("../models/comment");
 var middlewareObj = {};
 
-middlewareObj.checkDogOwnership = function (req, res, next) {
+middlewareObj.checkCampOwnership = function (req, res, next) {
     if (req.isAuthenticated()) {
-        Dog.findById(req.params.id, function (err, foundDog) {
+        Camp.findById(req.params.id, function (err, foundCamp) {
             if (err) {
                 console.log(err);
                 req.flash("error", "Campground not found");
                 res.redirect("back");
             } else {
-                //owns dog?
-                if (foundDog.author.id.equals(req.user._id)) {
+                //owns camp?
+                if (foundCamp.author.id.equals(req.user._id)) {
                     next();
                 } else {
                     req.flash("error", "You don't have permission to do that");

@@ -5,24 +5,24 @@
 
         <div class="jumbotron">
             <div class="container">
-                <h1>Welcome to DogBook!</h1>
-                <p>View dogs from all over the world</p>
+                <h1>Welcome to YelpCamp!</h1>
+                <p>View camps from all over the world</p>
                 <p>
-                    <a class="btn btn-primary btn-lg" href="/dogs/new">Add a new dog!</a>
+                    <a class="btn btn-primary btn-lg" href="/camps/new">Add a new camp!</a>
                 </p>
             </div>
         </div>
     </header>
 
     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
-        <% dogs.forEach(function(dog) { %>
+        <% camps.forEach(function(camp) { %>
         <div class="col-md-3 col-sm-6">
             <div class="thumbnail">
-                <img src="<%=dog.image%>">
+                <img src="<%=camp.image%>">
                 <div class="caption">
-                    <p> <%= dog.name %></p>
+                    <p> <%= camp.name %></p>
                 </div>
-                <p><a href="/dogs/<%=dog._id%>" class="btn btn-primary">More info</a></p>
+                <p><a href="/camps/<%=camp._id%>" class="btn btn-primary">More info</a></p>
             </div>
         </div>
         <% }); %>
