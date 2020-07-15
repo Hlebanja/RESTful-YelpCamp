@@ -1,12 +1,12 @@
 <%- include ../partials/header %>
 
-<h1>SHOW DOG!!!!</h1>
+<h1>SHOW CAMP!!!!</h1>
 
 <div class="container">
     <div class="row">
         <div class="col-md-3">
             <div class="lead">
-                <p>DogCamp</p>
+                <p>YelpCamp</p>
             </div>
             <div class="list-group">
                 <li class="list-group-item active">Info 1</li>
@@ -16,17 +16,17 @@
         </div>
         <div class="col-md-9">
             <div class="thumbnail">
-                <img class="img-responsive" src="<%= dog.image %>" alt="dog image">
+                <img class="img-responsive" src="<%= camp.image %>" alt="camp image">
                 <div class="caption-full">
                     <h4 class="pull-right">$3000</h4>
-                    <h4><a href=""><%=dog.name%></a></h4>
-                    <p><%= dog.description%></p>
-                    <p><em>Posted by <%= dog.author.username %></em></p>
+                    <h4><a href=""><%=camp.name%></a></h4>
+                    <p><%= camp.description%></p>
+                    <p><em>Posted by <%= camp.author.username %></em></p>
 
-                    <% if(currentUser && dog.author.id.equals(currentUser._id)) { %>
-                    <a class="btn btn-warning" href="/dogs/<%= dog._id %>/edit">Edit</a>
+                    <% if(currentUser && camp.author.id.equals(currentUser._id)) { %>
+                    <a class="btn btn-warning" href="/camps/<%= camp._id %>/edit">Edit</a>
 
-                    <form class="delete-form" action="/dogs/<%= dog._id %>?_method=DELETE" method="POST">
+                    <form class="delete-form" action="/camps/<%= camp._id %>?_method=DELETE" method="POST">
                         <button class="btn btn-danger">Delete</button>
                     </form>
 
@@ -35,10 +35,10 @@
             </div>
             <div class="well">
                 <div class="text-right">
-                    <p> <a class="btn btn-success" href="/dogs/<%= dog._id %>/comments/new">add new comment</a></p>
+                    <p> <a class="btn btn-success" href="/camps/<%= camp._id %>/comments/new">add new comment</a></p>
                 </div>
                 <hr>
-                <% dog.comments.forEach(function(comment) { %>
+                <% camp.comments.forEach(function(comment) { %>
                 <div class="row">
                     <div class="col-md-12">
                         <strong><%= comment.author.username %></strong>
@@ -46,11 +46,11 @@
                         <p><%= comment.text %></p>
 
                         <% if(currentUser && comment.author.id.equals(currentUser._id)) { %>
-                        <a class="btn btn-xs btn-warning" href="/dogs/<%= dog._id %>/comments/<%= comment._id %>/edit">
+                        <a class="btn btn-xs btn-warning" href="/camps/<%= camp._id %>/comments/<%= comment._id %>/edit">
                             Edit
                         </a>
                         <form class="delete-form"
-                            action="/dogs/<%= dog._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                            action="/camps/<%= camp._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
                             <input type="submit" class="btn btn-xs btn-danger" value="Delete"></input>
                         </form>
                         <% } %>

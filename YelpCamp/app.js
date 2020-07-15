@@ -5,14 +5,14 @@ var express     = require("express"),
     passport    = require("passport"),
     LocalStrategy = require("passport-local"),
     methodOverride = require("method-override"),
-    Dog         = require("./models/dog"),
+    Camp         = require("./models/camp"),
     Comment     = require("./models/comment"),
     User        = require("./models/user"),
     seedDB      = require("./seeds.js");
     flash       = require("connect-flash");
 
 var commentRoutes = require("./routes/comments"),
-    dogRoutes = require("./routes/dogs"),
+    campRoutes = require("./routes/camps"),
     indexRoutes = require("./routes/index");
 
 mongoose.connect("mongodb://localhost/yelp_camp6", { useNewUrlParser: true });
@@ -48,12 +48,12 @@ app.use(function (req, res, next) {
 
 
 app.use("/", indexRoutes);
-app.use("/dogs/", dogRoutes);
-app.use("/dogs/:id/comments/", commentRoutes);
+app.use("/camps/", campRoutes);
+app.use("/camps/:id/comments/", commentRoutes);
 
 seedDB();
 
 var port = process.env.PORT || 3000;
 app.listen(port, process.env.IP, function () {
-    console.log("DogCamp is running!");
+    console.log("YelpCamp is running!");
 });
